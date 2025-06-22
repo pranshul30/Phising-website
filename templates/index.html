@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>The Phish Web</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="Phishing detection web application" />
+    <meta name="keywords" content="phishing, security, URL, detector, Flask" />
+    <meta name="author" content="Pranshul Sharma" />
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f0f4f8; 
+        color: #334155; 
+    }
+    .section-padding {
+        padding: 8rem 2rem; 
+    }
+    @media (min-width: 768px) {
+        .section-padding {
+            padding: 10rem 4rem;
+        }
+    }
+   
+</style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-blue-700 to-indigo-800 text-white shadow-lg py-4 px-6 md:px-12 flex justify-between items-center fixed w-full top-0 z-50">
+        <a class="flex items-center space-x-3" href="#home">
+            
+            <div class="h-10 w-10 rounded-full bg-white flex items-center justify-center text-blue-700 font-bold text-xl">H</div>
+            <p class="text-2xl font-bold tracking-tight">The Phish Website</p>
+        </a>
+        <nav class="hidden md:flex space-x-8">
+            <a class="hover:text-blue-200 transition-colors duration-200 font-medium" href="#home">Home</a>
+            <a class="hover:text-blue-200 transition-colors duration-200 font-medium" href="#info">Info</a>
+            <a class="hover:text-blue-200 transition-colors duration-200 font-medium" href="#about">About</a>
+            <a class="hover:text-blue-200 transition-colors duration-200 font-medium" href="#report">Report Links</a>
+            <a class="hover:text-blue-200 transition-colors duration-200 font-medium" href="#hunt">Hunt the Phish</a>
+        </nav>
+        <button class="btn-primary hidden md:block">Be Phish Free</button>
+        <!-- Mobile menu button (add JS for toggle) -->
+        <button class="md:hidden text-white focus:outline-none">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+    </header>
+
+    <main class="pt-24"> 
+
+        <!-- Home Section (Intro) -->
+        <section id="home" class="section-padding bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen flex items-center justify-center">
+            <div class="container mx-auto px-4 py-12 flex flex-col md:flex-row items-center justify-between gap-12 text-center md:text-left">
+                <div class="max-w-2xl">
+                    <h1 class="text-5xl md:text-6xl font-extrabold leading-tight text-gray-900 mb-6">
+                        Trust<br />only<br />the <span class="text-blue-600">Hunters</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-700 mb-8 max-w-xl">
+                        Safeguarding your online presence by identifying and combating phishing attempts effectively.
+                    </p>
+                    <a href="#hunt" class="btn-primary inline-flex items-center group">
+                        Be Phish Free
+                        <svg class="w-5 h-5 ml-2 -mr-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                </div>
+              <div class="md:w-1/2 flex justify-center mt-8 md:mt-0">
+
+    <img class="w-full max-w-md rounded-xl shadow-2xl transition-all duration-500 hover:scale-105"
+         src="{{ url_for('static', filename='images/image.png') }}"
+         alt="Phish Hunter Hero" />
+</div>
+
+            </div>
+        </section>
+
+        <!-- Info Section -->
+        <section id="info" class="section-padding bg-white flex items-center justify-center">
+            <div class="container mx-auto px-4 py-12 text-center">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-8">What We Do?</h1>
+                <p class="text-lg md:text-xl text-gray-700 leading-relaxed max-w-3xl mx-auto mb-8">
+                    Welcome to The Phish Hunters, your go-to platform for efficient phishing detection. With the increasing prevalence of online scams and fraudulent activities, it has become imperative to safeguard yourself and your sensitive information. Our website is dedicated to providing you with cutting-edge tools and resources to identify and combat phishing attempts effectively. Stay one step ahead of cybercriminals with our comprehensive solutions and proactive approach.
+                </p>
+                <p class="text-2xl md:text-3xl font-bold text-blue-600 mt-8">Happy Hunting!</p>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section-padding bg-gradient-to-br from-indigo-50 to-blue-100 flex items-center justify-center">
+            <div class="container mx-auto px-4 py-12 text-center">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-8">
+                    We believe in <span class="text-blue-600">Finding Harmful Links</span>
+                </h2>
+                <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
+                    Our mission is to create a safer online environment for everyone by leveraging advanced techniques to detect and neutralize phishing threats. We empower users with knowledge and tools to navigate the internet securely.
+                </p>
+            </div>
+        </section>
+
+        <!-- Report Links Section -->
+        <section id="report" class="section-padding bg-gray-100 flex items-center justify-center">
+            <div class="container mx-auto px-4 py-12 text-center max-w-2xl">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-8">Report a Malicious Link</h1>
+                <div class="card">
+                    <form action="/submit" method="post" class="space-y-6">
+                        <div class="form-group">
+                            <label for="source" class="block text-left text-lg font-medium text-gray-700 mb-2">Source (e.g., Email, SMS, Website)</label>
+                            <input type="text" id="source" name="source" class="form-input" placeholder="e.g., phishing@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="link_report" class="block text-left text-lg font-medium text-gray-700 mb-2">Link</label>
+                            <input type="url" id="link_report" name="link" class="form-input" placeholder="https://malicious-site.com/login" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="reason" class="block text-left text-lg font-medium text-gray-700 mb-2">Reason</label>
+                            <textarea id="reason" name="reason" rows="4" class="form-input resize-y" placeholder="Explain why you believe this link is malicious..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary w-full">Report Link</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hunt the Phish Section (Main Check Form) -->
+        <section id="hunt" class="section-padding bg-gradient-to-br from-blue-100 to-indigo-200 flex items-center justify-center">
+            <div class="container mx-auto px-4 py-12 flex flex-col md:flex-row items-center justify-center gap-12 text-center md:text-left">
+                <div class="max-w-2xl md:w-1/2">
+                    <h1 class="text-4xl md:text-5xl font-extrabold leading-tight text-gray-900 mb-6">
+                        Afraid of <br><span class="text-red-600">Malicious Links</span> ?<br>We got you Protected!
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-700 mb-8">
+                        Enter any URL below and let our Phish Hunter model check it for potential threats.
+                    </p>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="card w-full max-w-lg">
+                        <form class="space-y-6" method="POST" action="/check">
+                            <div class="form-group">
+                                <label for="link" class="block text-left text-lg font-medium text-gray-700 mb-2">Enter Link to Check</label>
+                                <input id="link" name='link' type="url" class="form-input" placeholder="https://example.com" required/>
+                            </div>
+                            <button type='submit' id='submit' class="btn-primary w-full">Check Link</button>
+                            {% if error %}
+                                <p class="text-red-500 text-sm mt-2">{{ error }}</p>
+                            {% endif %}
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 px-6 md:px-12 text-center">
+        <p>&copy; 2025 The Phish Hunter. All rights reserved.</p>
+        <p class="text-sm mt-2">Built for a safer web.</p>
+    </footer>
+
+</body>
+</html>
